@@ -30,6 +30,7 @@ namespace PclSharp.IO
 
 		<#= i.FuncI("int", "write_xyz", "string fileName, IntPtr cloud") #>
 		<#= i.FuncI("int", "write_xyzrgba", "string fileName, IntPtr cloud") #>
+		<#= i.FuncI("int", "write_xyzi", "string fileName, IntPtr cloud") #>
 	}
 
 	public class PCDWriter : UnmanagedObject
@@ -48,6 +49,11 @@ namespace PclSharp.IO
 		public int Write(string fileName, PointCloud<PointXYZRGBA> cloud)
 		{
 			return <#=i.InvokeI("write_xyzrgba", "fileName, cloud")#>;
+		}
+
+		public int Write(string fileName, PointCloud<PointXYZI> cloud)
+		{
+			return <#=i.InvokeI("write_xyzi", "fileName, cloud")#>;
 		}
 
 		protected override void DisposeObject()
@@ -88,6 +94,10 @@ extern "C" {
 	return ptr->writeBinary(string(str), *cloud);
 }
 <#=i.ExportI("int32_t", "write_xyzrgba", "const char* str, PointCloud<PointXYZRGBA>* cloud")#>
+{ 
+	return ptr->writeBinary(string(str), *cloud);
+}
+<#=i.ExportI("int32_t", "write_xyzi", "const char* str, PointCloud<PointXYZI>* cloud")#>
 { 
 	return ptr->writeBinary(string(str), *cloud);
 }

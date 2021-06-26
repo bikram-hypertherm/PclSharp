@@ -113,6 +113,9 @@
     <Compile Include="Filters\ExtractIndicesOfXYZ.generated.cs">
       <DependentUpon>ExtractIndices.tt</DependentUpon>
     </Compile>
+    <Compile Include="Filters\ExtractIndicesOfXYZI.generated.cs">
+      <DependentUpon>ExtractIndices.tt</DependentUpon>
+    </Compile>
     <Compile Include="Filters\Filter.cs" />
     <Compile Include="Filters\ExtractIndices.cs">
       <AutoGen>True</AutoGen>
@@ -144,6 +147,9 @@
     <Compile Include="Filters\VoxelGridOfXYZ.generated.cs">
       <DependentUpon>VoxelGrid.tt</DependentUpon>
     </Compile>
+    <Compile Include="Filters\VoxelGridOfXYZI.generated.cs">
+      <DependentUpon>VoxelGrid.tt</DependentUpon>
+    </Compile>
     <Compile Include="IO\PCDReader.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -159,6 +165,9 @@
     <Compile Include="PclBaseOfXYZ.generated.cs">
       <DependentUpon>PclBaseOf.tt</DependentUpon>
     </Compile>
+    <Compile Include="PclBaseOfXYZI.generated.cs">
+      <DependentUpon>PclBaseOf.tt</DependentUpon>
+    </Compile>
     <Compile Include="PclBaseOfXYZRGBA.generated.cs">
       <DependentUpon>PclBaseOf.tt</DependentUpon>
     </Compile>
@@ -167,6 +176,9 @@
       <DependentUpon>PointCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="PointCloudOfXYZ.generated.cs">
+      <DependentUpon>PointCloud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PointCloudOfXYZI.generated.cs">
       <DependentUpon>PointCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="PointCloudOfXYZL.generated.cs">
@@ -332,6 +344,9 @@
       <DependentUpon>VectorOfUnmanaged.tt</DependentUpon>
     </Compile>
     <Compile Include="Std\VectorOfXYZ.generated.cs">
+      <DependentUpon>VectorOfStruct.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Std\VectorOfXYZI.generated.cs">
       <DependentUpon>VectorOfStruct.tt</DependentUpon>
     </Compile>
     <Compile Include="Std\VectorOfXYZL.generated.cs">
