@@ -28,8 +28,8 @@ namespace PclSharp.IO
 		<#= i.Ctor() #>
 		<#= i.Delete() #>
 
-		<#= i.FuncI("int", "write_xyz", "string fileName, IntPtr cloud, List<int> offset") #>
-		<#= i.FuncI("int", "write_xyzrgba", "string fileName, IntPtr cloud, List<int> offset") #>
+		<#= i.FuncI("int", "write_xyz", "string fileName, IntPtr cloud") #>
+		<#= i.FuncI("int", "write_xyzrgba", "string fileName, IntPtr cloud") #>
 	}
 
 	public class PCDWriter : UnmanagedObject
@@ -39,15 +39,15 @@ namespace PclSharp.IO
 			_ptr = <#=i.Invoke("ctor")#>;
 		}
 
-		public int Write(string fileName, PointCloud<PointXYZ> cloud, List<int> indices=null)
+		public int Write(string fileName, PointCloud<PointXYZ> cloud)
 		{
-			var res = <#=i.InvokeI("write_xyz", "fileName, cloud.Ptr, indices")#>;
+			var res = <#=i.InvokeI("write_xyz", "fileName, cloud.Ptr")#>;
 			return res;
 		}
 
-		public int Write(string fileName, PointCloud<PointXYZRGBA> cloud, List<int> indices=null)
+		public int Write(string fileName, PointCloud<PointXYZRGBA> cloud)
 		{
-			return <#=i.InvokeI("write_xyzrgba", "fileName, cloud, indices")#>;
+			return <#=i.InvokeI("write_xyzrgba", "fileName, cloud")#>;
 		}
 
 		protected override void DisposeObject()
@@ -83,13 +83,13 @@ extern "C" {
 	*ptr = NULL;
 }
 
-<#=i.ExportI("int32_t", "write_xyz", "const char* str, PointCloud<PointXYZ>* cloud, std::vector<int>* indices")#>
+<#=i.ExportI("int32_t", "write_xyz", "const char* str, PointCloud<PointXYZ>* cloud")#>
 {
-	return ptr->writeBinary(string(str), *cloud, *indices);
+	return ptr->writeBinary(string(str), *cloud);
 }
-<#=i.ExportI("int32_t", "write_xyzrgba", "const char* str, PointCloud<PointXYZRGBA>* cloud, std::vector<int>* indices")#>
+<#=i.ExportI("int32_t", "write_xyzrgba", "const char* str, PointCloud<PointXYZRGBA>* cloud")#>
 { 
-	return ptr->writeBinary(string(str), *cloud, *indices);
+	return ptr->writeBinary(string(str), *cloud);
 }
 
 
