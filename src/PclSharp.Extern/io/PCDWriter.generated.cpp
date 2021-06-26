@@ -29,10 +29,6 @@ EXPORT(int32_t) io_pcdwriter_write_xyzrgba(PCDWriter* ptr, const char* str, Poin
 { 
 	return ptr->writeBinary(string(str), *cloud);
 }
-EXPORT(int32_t) io_pcdwriter_write_xyzi(PCDWriter* ptr, const char* str, PointCloud<PointXYZI>* cloud)
-{ 
-	return ptr->writeBinary(string(str), *cloud);
-}
 
 
 #ifdef __cplusplus  
