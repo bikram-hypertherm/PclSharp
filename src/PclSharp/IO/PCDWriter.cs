@@ -15,9 +15,9 @@ namespace PclSharp.IO
 		public static extern void io_pcdwriter_delete(ref IntPtr ptr);
 
 		[DllImport(Native.DllName, CallingConvention=Native.CallingConvention)]
-		public static extern int io_pcdwriter_write_xyz(IntPtr ptr, string fileName, IntPtr cloud, int offset);
+		public static extern int io_pcdwriter_write_xyz(IntPtr ptr, string fileName, IntPtr cloud, List<int> offset);
 		[DllImport(Native.DllName, CallingConvention=Native.CallingConvention)]
-		public static extern int io_pcdwriter_write_xyzrgba(IntPtr ptr, string fileName, IntPtr cloud, int offset);
+		public static extern int io_pcdwriter_write_xyzrgba(IntPtr ptr, string fileName, IntPtr cloud, List<int> offset);
 	}
 
 	public class PCDWriter : UnmanagedObject
@@ -27,15 +27,15 @@ namespace PclSharp.IO
 			_ptr = Invoke.io_pcdwriter_ctor();
 		}
 
-		public int Write(string fileName, PointCloud<PointXYZ> cloud, int offset=0)
+		public int Write(string fileName, PointCloud<PointXYZ> cloud, List<int> indices=null)
 		{
-			var res = Invoke.io_pcdwriter_write_xyz(_ptr, fileName, cloud.Ptr, offset);
+			var res = Invoke.io_pcdwriter_write_xyz(_ptr, fileName, cloud.Ptr, indices);
 			return res;
 		}
 
-		public int Write(string fileName, PointCloud<PointXYZRGBA> cloud, int offset=0)
+		public int Write(string fileName, PointCloud<PointXYZRGBA> cloud, List<int> indices=null)
 		{
-			return Invoke.io_pcdwriter_write_xyzrgba(_ptr, fileName, cloud, offset);
+			return Invoke.io_pcdwriter_write_xyzrgba(_ptr, fileName, cloud, indices);
 		}
 
 		protected override void DisposeObject()

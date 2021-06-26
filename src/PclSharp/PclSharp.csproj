@@ -149,6 +149,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PCDReader.tt</DependentUpon>
     </Compile>
+    <Compile Include="IO\PCDWriter.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PCDWriter.tt</DependentUpon>
+    </Compile>
     <Compile Include="Native.cs" />
     <Compile Include="PclBase.cs" />
     <Compile Include="PclBaseOfXYZ.generated.cs">
@@ -405,6 +410,10 @@
     <Content Include="IO\PCDReader.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PCDReader.cs</LastGenOutput>
+    </Content>
+    <Content Include="IO\PCDWriter.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PCDWriter.cs</LastGenOutput>
     </Content>
     <Content Include="PclBaseOf.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
