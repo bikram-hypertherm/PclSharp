@@ -113,6 +113,9 @@
     <Compile Include="Filters\ExtractIndicesOfXYZ.generated.cs">
       <DependentUpon>ExtractIndices.tt</DependentUpon>
     </Compile>
+    <Compile Include="Filters\ExtractIndicesOfXYZI.generated.cs">
+      <DependentUpon>ExtractIndices.tt</DependentUpon>
+    </Compile>
     <Compile Include="Filters\Filter.cs" />
     <Compile Include="Filters\ExtractIndices.cs">
       <AutoGen>True</AutoGen>
@@ -144,14 +147,25 @@
     <Compile Include="Filters\VoxelGridOfXYZ.generated.cs">
       <DependentUpon>VoxelGrid.tt</DependentUpon>
     </Compile>
+    <Compile Include="Filters\VoxelGridOfXYZI.generated.cs">
+      <DependentUpon>VoxelGrid.tt</DependentUpon>
+    </Compile>
     <Compile Include="IO\PCDReader.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PCDReader.tt</DependentUpon>
     </Compile>
+    <Compile Include="IO\PCDWriter.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PCDWriter.tt</DependentUpon>
+    </Compile>
     <Compile Include="Native.cs" />
     <Compile Include="PclBase.cs" />
     <Compile Include="PclBaseOfXYZ.generated.cs">
+      <DependentUpon>PclBaseOf.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PclBaseOfXYZI.generated.cs">
       <DependentUpon>PclBaseOf.tt</DependentUpon>
     </Compile>
     <Compile Include="PclBaseOfXYZRGBA.generated.cs">
@@ -162,6 +176,9 @@
       <DependentUpon>PointCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="PointCloudOfXYZ.generated.cs">
+      <DependentUpon>PointCloud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PointCloudOfXYZI.generated.cs">
       <DependentUpon>PointCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="PointCloudOfXYZL.generated.cs">
@@ -329,6 +346,9 @@
     <Compile Include="Std\VectorOfXYZ.generated.cs">
       <DependentUpon>VectorOfStruct.tt</DependentUpon>
     </Compile>
+    <Compile Include="Std\VectorOfXYZI.generated.cs">
+      <DependentUpon>VectorOfStruct.tt</DependentUpon>
+    </Compile>
     <Compile Include="Std\VectorOfXYZL.generated.cs">
       <DependentUpon>VectorOfStruct.tt</DependentUpon>
     </Compile>
@@ -405,6 +425,10 @@
     <Content Include="IO\PCDReader.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PCDReader.cs</LastGenOutput>
+    </Content>
+    <Content Include="IO\PCDWriter.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PCDWriter.cs</LastGenOutput>
     </Content>
     <Content Include="PclBaseOf.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

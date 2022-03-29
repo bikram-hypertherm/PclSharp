@@ -122,4 +122,23 @@ namespace PclSharp.Struct
         [FieldOffset(16)]
         public uint Label;
     }
+
+    [DebuggerDisplay("{V}, {Intensity}")]
+    [StructLayout(LayoutKind.Explicit, Size = 32)]
+    public unsafe struct PointXYZI
+    {
+        [FieldOffset(0)]
+        public float X;
+        [FieldOffset(4)]
+        public float Y;
+        [FieldOffset(8)]
+        public float Z;
+        [FieldOffset(0)]
+        public Vector3 V;
+        [FieldOffset(0)]
+        public fixed float data[4];
+
+        [FieldOffset(16)]
+        public float Intensity;
+    }
 }

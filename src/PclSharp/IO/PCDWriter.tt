@@ -28,8 +28,9 @@ namespace PclSharp.IO
 		<#= i.Ctor() #>
 		<#= i.Delete() #>
 
-		<#= i.FuncI("int", "write_xyz", "string fileName, IntPtr cloud, int offset") #>
-		<#= i.FuncI("int", "write_xyzrgba", "string fileName, IntPtr cloud, int offset") #>
+		<#= i.FuncI("int", "write_xyz", "string fileName, IntPtr cloud") #>
+		<#= i.FuncI("int", "write_xyzrgba", "string fileName, IntPtr cloud") #>
+		<#= i.FuncI("int", "write_xyzi", "string fileName, IntPtr cloud") #>
 	}
 
 	public class PCDWriter : UnmanagedObject
@@ -39,15 +40,20 @@ namespace PclSharp.IO
 			_ptr = <#=i.Invoke("ctor")#>;
 		}
 
-		public int Write(string fileName, PointCloud<PointXYZ> cloud, int indices=0)
+		public int Write(string fileName, PointCloud<PointXYZ> cloud)
 		{
-			var res = <#=i.InvokeI("write_xyz", "fileName, cloud.Ptr, indices")#>;
+			var res = <#=i.InvokeI("write_xyz", "fileName, cloud.Ptr")#>;
 			return res;
 		}
 
-		public int Write(string fileName, PointCloud<PointXYZRGBA> cloud, int indices=0)
+		public int Write(string fileName, PointCloud<PointXYZRGBA> cloud)
 		{
-			return <#=i.InvokeI("write_xyzrgba", "fileName, cloud, indices")#>;
+			return <#=i.InvokeI("write_xyzrgba", "fileName, cloud")#>;
+		}
+
+		public int Write(string fileName, PointCloud<PointXYZI> cloud)
+		{
+			return <#=i.InvokeI("write_xyzi", "fileName, cloud")#>;
 		}
 
 		protected override void DisposeObject()
@@ -83,13 +89,17 @@ extern "C" {
 	*ptr = NULL;
 }
 
-<#=i.ExportI("int32_t", "write_xyz", "const char* str, PointCloud<PointXYZ>* cloud, int* indices")#>
+<#=i.ExportI("int32_t", "write_xyz", "const char* str, PointCloud<PointXYZ>* cloud")#>
 {
-	return ptr->writeBinary(string(str), *cloud, *indices);
+	return ptr->writeBinary(string(str), *cloud);
 }
-<#=i.ExportI("int32_t", "write_xyzrgba", "const char* str, PointCloud<PointXYZRGBA>* cloud, int* indices")#>
+<#=i.ExportI("int32_t", "write_xyzrgba", "const char* str, PointCloud<PointXYZRGBA>* cloud")#>
 { 
-	return ptr->writeBinary(string(str), *cloud, *indices);
+	return ptr->writeBinary(string(str), *cloud);
+}
+<#=i.ExportI("int32_t", "write_xyzi", "const char* str, PointCloud<PointXYZI>* cloud")#>
+{ 
+	return ptr->writeBinary(string(str), *cloud);
 }
 
 
